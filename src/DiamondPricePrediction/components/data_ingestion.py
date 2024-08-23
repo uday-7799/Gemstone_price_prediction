@@ -38,7 +38,14 @@ class DataIngestion:
             test_data.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
             logging.info("saved train_data.csv and test_data.csv in the artifacts folder")
 
+            return(
+                
+                self.ingestion_config.train_data_path,
+                self.ingestion_config.test_data_path
+            )
+
 
 
         except Exception as e:
+            logging.info("Exception occured in initiate_data_ingestion method")
             raise CustomException(e,sys)
